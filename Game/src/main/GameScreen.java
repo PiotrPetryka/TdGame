@@ -10,6 +10,9 @@ public class GameScreen extends JPanel {
     private Random random;
     private BufferedImage img;
     private ArrayList<BufferedImage> sprites = new ArrayList<>();
+    private long lastTime;
+    private int frames;
+
 
     public GameScreen(BufferedImage img){
         random = new Random();
@@ -36,10 +39,18 @@ public class GameScreen extends JPanel {
             g.setColor(getRandomColor());
         g.drawImage(sprites.get(getRandomInt()), x*32, y*32, null);
 
-        }}
+            }
+        }
+        frames++;
+        if (System.currentTimeMillis() - lastTime >= 1000){
+            System.out.println("Fps: " + frames);
+            frames = 0;
+            lastTime = System.currentTimeMillis();
+        }
+        repaint();
     }
     private int getRandomInt(){
-        return random.nextInt(20);
+        return random.nextInt(100);
     }
     private Color getRandomColor(){
         int r = random.nextInt(256);

@@ -12,12 +12,13 @@ public class Game extends JFrame {
     private BufferedImage img;
     public Game(){
         importImg();
-    setSize(640,640);
-    setVisible(true);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setLocationRelativeTo(null);
-    gameScreen = new GameScreen(img);
-    add(gameScreen);
+        setSize(640,640);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        gameScreen = new GameScreen(img);
+        add(gameScreen);
+        setVisible(true);
+
     }
 
     private void importImg() {
