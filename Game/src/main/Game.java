@@ -10,7 +10,13 @@ import java.util.Random;
 public class Game extends JFrame {
     private GameScreen gameScreen;
     private BufferedImage img;
+    private double timeForFrame;
+    private long lastFrame;
+
+
     public Game(){
+        timeForFrame = 1000000000.0 / 60.0;
+
         importImg();
         setSize(640,640);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -30,9 +36,20 @@ public class Game extends JFrame {
             throw new RuntimeException(e);
         }
     }
+    private void gameLoop(){
+        while (true) {
+            if (System.nanoTime() - lastFrame >= timeForFrame) {
+                lastFrame = System.nanoTime();
+                repaint();
+            } else {
+                //do nothing
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Game game = new Game();
+        game.gameLoop();
 
     }
 

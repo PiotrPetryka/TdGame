@@ -14,11 +14,11 @@ public class GameScreen extends JPanel {
     private int frames;
 
 
+
     public GameScreen(BufferedImage img){
         random = new Random();
         this.img = img;
         loadSprites();
-
     }
 
     private void loadSprites() {
@@ -41,13 +41,17 @@ public class GameScreen extends JPanel {
 
             }
         }
+
+        callFps();
+    }
+
+    private void callFps(){
         frames++;
         if (System.currentTimeMillis() - lastTime >= 1000){
             System.out.println("Fps: " + frames);
             frames = 0;
             lastTime = System.currentTimeMillis();
         }
-        repaint();
     }
     private int getRandomInt(){
         return random.nextInt(100);
