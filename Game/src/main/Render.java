@@ -10,14 +10,12 @@ import java.util.Random;
 
 public class Render {
     private GameScreen gameScreen;
-    private BufferedImage img;
-    private ArrayList<BufferedImage> sprites = new ArrayList<>();
-    private Random random;
-    public Render (GameScreen gameScreen){
-        this.gameScreen = gameScreen;
-        random = new Random();
-        importImg();
-        loadSprites();
+    private Game game;
+
+    public Render (Game game){
+        this.game = game;
+
+
 
     }
 
@@ -26,40 +24,20 @@ public class Render {
         switch(GameStates.gameState){
 
             case MENU:
-                for (int x=0; x < 20; x++){
-                    for(int y=0; y<20; y++){
-                        g.drawImage(sprites.get(getRandomInt()), x*32, y*32, null);
-                    }
-                }
+                game.getMenu().render(g);
 
                 break;
             case PLAYING:
+                game.getPlaying().render(g);
 
                 break;
             case SETTINGS:
+                game.getSettings().render(g);
 
                 break;
         }
 
     }
 
-    private void loadSprites() {
-        for (int y = 0; y < 10; y++){
-            for (int x = 0; x < 10; x++){
-                sprites.add(img.getSubimage(x * 32,y * 32,32,32));
-            }
-        }
-    }
 
-    private int getRandomInt(){
-        return random.nextInt(100);
-    }
-    private void importImg() {
-        InputStream is = getClass().getResourceAsStream("../spriteatlas.png");
-        try {
-            img = ImageIO.read(is);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
