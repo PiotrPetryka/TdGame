@@ -19,9 +19,9 @@ public class Menu extends GameScene implements SceneMethods{
     }
 
     private void initButtons() {
-        bPlaying = new MyButton("Play", 100, 100, 100, 30);
-        settingsButton = new MyButton("Settings", 100, 200, 100, 30);
-        quitButton = new MyButton("Quit", 100, 300, 100,30);
+        bPlaying = new MyButton("Play", 270, 100, 100, 30);
+        settingsButton = new MyButton("Settings", 270, 200, 100, 30);
+        quitButton = new MyButton("Quit", 270, 300, 100,30);
     }
 
     @Override

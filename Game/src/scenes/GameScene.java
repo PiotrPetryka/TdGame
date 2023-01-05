@@ -1,7 +1,6 @@
 package scenes;
 
 import main.Game;
-import main.GameScreen;
 
 public class GameScene {
     private Game game;

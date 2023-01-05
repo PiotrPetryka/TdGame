@@ -23,10 +23,13 @@ public class MyMouseListener implements MouseMotionListener, MouseListener {
 
         switch(GameStates.gameState){
             case MENU:
-            case PLAYING:
                 game.getMenu().mouseMoved(e.getX(), e.getY());
                 break;
+            case PLAYING:
+                game.getPlaying().mouseMoved(e.getX(), e.getY());
+                break;
             case SETTINGS:
+                game.getSettings().mouseMoved(e.getX(), e.getY());
                 break;
             default:
                 break;
@@ -37,13 +40,14 @@ public class MyMouseListener implements MouseMotionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON1){
-
             switch(GameStates.gameState){
                 case MENU:
-                case PLAYING:
                     game.getMenu().mouseClicked(e.getX(), e.getY());
+                case PLAYING:
+                    game.getPlaying().mouseClicked(e.getX(), e.getY());
                     break;
                 case SETTINGS:
+                    game.getSettings().mouseClicked(e.getX(), e.getY());
                     break;
                 default:
                     break;
@@ -56,10 +60,12 @@ public class MyMouseListener implements MouseMotionListener, MouseListener {
     public void mousePressed(MouseEvent e) {
         switch(GameStates.gameState){
             case MENU:
-            case PLAYING:
                 game.getMenu().mousePressed(e.getX(), e.getY());
+            case PLAYING:
+                game.getPlaying().mousePressed(e.getX(), e.getY());
                 break;
             case SETTINGS:
+                game.getSettings().mousePressed(e.getX(), e.getY());
                 break;
             default:
                 break;
@@ -74,9 +80,10 @@ public class MyMouseListener implements MouseMotionListener, MouseListener {
                 game.getMenu().mouseReleased(e.getX(),e.getY());
                 break;
             case PLAYING:
-                game.getMenu().mouseReleased(e.getX(),e.getY());
+                game.getPlaying().mouseReleased(e.getX(),e.getY());
                 break;
             case SETTINGS:
+                game.getSettings().mouseReleased(e.getX(),e.getY());
                 break;
             default:
                 break;

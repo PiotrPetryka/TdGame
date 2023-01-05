@@ -18,18 +18,16 @@ public class Settings extends GameScene implements SceneMethods{
         initButtons();
     }
     private void initButtons() {
-
         backToMenuButton = new MyButton("Back to Menu", 540, 30, 100, 30);
     }
     @Override
     public void render(Graphics g) {
-//        g.setColor(Color.blue);
-//        g.fillRect(0,0,640,640);
         drawButtons(g);
     }
 
     @Override
     public void mouseClicked(int x, int y) {
+        System.out.println("testclick");
         if (backToMenuButton.getBounds().contains(x, y)){
             SetGameState(MENU);
         }
@@ -37,6 +35,7 @@ public class Settings extends GameScene implements SceneMethods{
 
     @Override
     public void mouseMoved(int x, int y) {
+        System.out.println("test");
         resetButtons();
         if (backToMenuButton.getBounds().contains(x, y)) {
             backToMenuButton.setMouseOver(true);
@@ -45,6 +44,7 @@ public class Settings extends GameScene implements SceneMethods{
 
     @Override
     public void mousePressed(int x, int y) {
+        System.out.println("test pressed");
         if (backToMenuButton.getBounds().contains(x, y)) {
             backToMenuButton.setMousePressed(true);
         }
@@ -52,12 +52,15 @@ public class Settings extends GameScene implements SceneMethods{
 
     @Override
     public void mouseReleased(int x, int y) {
+        System.out.println("test released");
+
         resetButtons();
     }
     private void resetButtons() {
         backToMenuButton.resetBooleans();
     }
     private void drawButtons(Graphics g) {
+
         backToMenuButton.draw(g);
     }
 

@@ -20,14 +20,14 @@ public class Playing extends GameScene implements SceneMethods{
 
     public Playing(Game game) {
         super(game);
-        lvl = LevelBuilder.getLevelData();        //lvl
+        lvl = LevelBuilder.getLevelData();
+        //lvl
         initButtons();
         tileManager = new TileManager();//TileManager
 
 
     }
     private void initButtons() {
-
         backToMenuButton = new MyButton("Back to Menu", 540, 30, 100, 30);
     }
 
